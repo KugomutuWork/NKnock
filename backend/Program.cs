@@ -5,6 +5,7 @@ var builder = WebApplication.CreateBuilder(args);
 // Swagger (OpenAPI + UI)
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+builder.Services.AddSingleton<TodoStore>();
 
 var app = builder.Build();
 

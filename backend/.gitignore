@@ -3,6 +3,8 @@
 **/obj/
 
 # User-specific / IDE
+.vs/
+*.cache
 .vscode/
 .idea/
 *.user

@@ -20,7 +20,7 @@ public static class TodoEndpoints
             if (string.IsNullOrWhiteSpace(req.Title))
                 return Results.BadRequest(new { message = "Title is required." });
 
-            var todo = store.Add(req.Title);
+            var todo = store.Add(req.Title.Trim());
             return Results.Created($"/api/todos/{todo.Id}", todo);
         });
 

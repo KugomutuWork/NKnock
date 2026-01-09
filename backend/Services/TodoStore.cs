@@ -4,11 +4,8 @@ namespace backend.Services;
 
 public class TodoStore
 {
-    private readonly List<Todo> _todos = new()
-    {
-        new(1, "First task", false),
-        new(2, "Second task", true),
-    };
+    private readonly List<Todo> _todos = new();
+    private int _nextId = 1;
 
     public IReadOnlyList<Todo> GetAll() => _todos;
 
@@ -16,8 +13,7 @@ public class TodoStore
 
     public Todo Add(string title)
     {
-        var nextId = _todos.Count == 0 ? 1 : _todos.Max(t => t.Id) + 1;
-        var todo = new Todo(nextId, title.Trim(), false);
+        var todo = new Todo(_nextId++, title, false);
         _todos.Add(todo);
         return todo;
     }

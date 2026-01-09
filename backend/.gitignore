@@ -1,6 +1,10 @@
 # .NET build outputs
 **/bin/
 **/obj/
+app.db
+*.db
+*.db-shm
+*.db-wal
 
 # User-specific / IDE
 .vs/

@@ -1,5 +1,4 @@
 using backend.Endpoints;
-using backend.Services;
 using backend.Data;
 using Microsoft.EntityFrameworkCore;
 
@@ -8,14 +7,9 @@ var builder = WebApplication.CreateBuilder(args);
 // Swagger (OpenAPI + UI)
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
-
-// Store をDI登録（メモリ保持したいので Singleton）
-builder.Services.AddSingleton<TodoStore>();
-
 builder.Services.AddDbContext<AppDbContext>(options =>
-{
-    options.UseSqlite("Data Source=todo.db");
-});
+    options.UseSqlite(builder.Configuration.GetConnectionString("Default")));
+
 
 var app = builder.Build();
 

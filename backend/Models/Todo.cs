@@ -1,7 +1,8 @@
 namespace backend.Models;
 
-public record Todo(
-    int Id,
-    string Title,
-    bool Done
-);
+public class Todo
+{
+    public int Id { get; set; }
+    public string Title { get; set; } = "";
+    public bool Done { get; set; }
+}
